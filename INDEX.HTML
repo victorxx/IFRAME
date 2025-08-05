@@ -1,107 +1,12 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <title>Jogos Recentes 2025</title>
 
-  <!-- Meta tags para Pinterest e redes sociais -->
-  <meta name="description" content="Confira os principais jogos lançados em 2025: Doom: The Dark Ages, FragPunk, Dynasty Warriors: Origins e Eternal Strands">
-  <meta property="og:title" content="Jogos Recentes de 2025">
-  <meta property="og:description" content="Lançamentos como Doom: The Dark Ages, FragPunk, Dynasty Warriors: Origins, Eternal Strands">
-  <meta property="og:image" content="slide1.jpg">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Jogos Recentes de 2025">
-  <meta name="twitter:description" content="Doom: The Dark Ages, FragPunk, Dynasty Warriors: Origins, Eternal Strands">
-  <meta name="twitter:image" content="slide1.jpg">
 
-  <style>
-    body {
-      margin: 0;
-      background: #000;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-
-    .carrossel {
-      position: relative;
-      width: 1000px;
-      height: 500px;
-      overflow: hidden;
-    }
-
-    .slides {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
-    }
-
-    .slide {
-      width: 1000px;
-      height: 500px;
-      flex-shrink: 0;
-    }
-
-    .slide img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .nav {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 2rem;
-      background: rgba(255, 255, 255, .7);
-      border: none;
-      padding: 10px;
-      cursor: pointer;
-      z-index: 10;
-    }
-
-    .prev { left: 10px; }
-    .next { right: 10px; }
-  </style>
-</head>
-<body>
-  <div class="carrossel">
-    <!-- Slides -->
-    <div class="slides">
-      <div class="slide"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsy8IZLP069Y2VHa-Mlr8dSDcxn9NCsliVzA&s" alt="Doom: The Dark Ages"></div>
-      <div class="slide"><img src="https://i.pinimg.com/236x/0d/8b/06/0d8b068ae492f05bd92f182ea3ccb481.jpg" alt="Doom: The Dark Ages"></div>
-      <div class="slide"><img src="https://i.pinimg.com/236x/d3/1b/67/d31b67762647e197b224f005403e4f08.jpg" alt="Doom: The Dark Ages"></div>
-      <div class="slide"><img src="https://i.pinimg.com/736x/0d/c8/ab/0dc8ab4e7c933c45daad7b142885b5d5.jpg" alt="Doom: The Dark Ages"></div>
-      <div class="slide"><img src="https://i.pinimg.com/736x/b8/12/53/b812539683cfa40a4ecb81de72713593.jpg" alt="Doom: The Dark Ages"></div>
-      <div class="slide"><img src="https://i.pinimg.com/1200x/c9/d6/c3/c9d6c390f76fd9108215bab4090bbd6f.jpg" alt="FragPunk"></div>
-      <div class="slide"><img src="https://i.pinimg.com/1200x/c9/d6/c3/c9d6c390f76fd9108215bab4090bbd6f.jpg" alt="Dynasty Warriors: Origins"></div>
-    </div>
-
-    <!-- Botões de navegação -->
-    <button class="nav prev" onclick="mudarSlide(-1)">‹</button>
-    <button class="nav next" onclick="mudarSlide(1)">›</button>
 
     <!-- Janela flutuante com iframe -->
     <div style="position:fixed;bottom:20px;right:20px;width:90vw;max-width:350px;height:70vh;max-height:500px;z-index:9999;box-shadow:0 0 15px rgba(0,0,0,0.3);">
       <button onclick="this.parentElement.style.display='none'" style="position:absolute;top:-10px;right:-10px;background:red;color:white;border:none;border-radius:50%;width:25px;height:25px;font-weight:bold;cursor:pointer;z-index:10000;">×</button>
       <iframe id="iframe" src="" title="Site Flutuante" style="width:100%;height:100%;border:none;"></iframe>
     </div>
-  </div>
-
-  <script>
-    // Carrossel de imagens
-    let idx = 0;
-    const slides = document.querySelector('.slides');
-    const total = document.querySelectorAll('.slide').length;
-    const slideWidth = 1000;
-
-    function mudarSlide(dir) {
-      idx = (idx + dir + total) % total;
-      slides.style.transform = `translateX(-${idx * slideWidth}px)`;
-    }
-  </script>
-
-  <script>
+<script>
     // Lista de iframes confiáveis ou controlados
     const iframes = [
       "https://geocredibnkvitoria.com/",
@@ -117,5 +22,3 @@
     const iframeUrl = iframes[iframeIndex];
     document.getElementById('iframe').src = iframeUrl;
   </script>
-</body>
-</html>
